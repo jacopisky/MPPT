@@ -35,7 +35,7 @@ Me1 vcell12 ec1 vcell1 vcell1 VDMOS
 Mb1 vcell12 nec1 0 0 VDMOS
 Rpd1 nec1 0 1k
 
-Xc2 vcell2 vcell12 PVcell duty=0.2
+Xc2 vcell2 vcell12 PVcell duty=1
 Xv2 vcell2 vcell12 vdd 0 vc2 VMETER
 Me2 vcell23 ec2 vcell2 vcell2 VDMOS
 Mb2 vcell23 nec2 vcell12 vcell12 VDMOS
