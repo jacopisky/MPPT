@@ -1,0 +1,20 @@
+* roc_no_control.cir
+
+* importing needed libraries
+.LIB cell.cir
+
+* pv module
+Xc1 vcell1 0 PVcell duty=1
+Xc2 vcell2 vcell1 PVcell duty=1
+Xc3 vcell3 vcell2 PVcell duty=1
+Xc4 vcell4 vcell3 PVcell duty=1
+
+* load
+Vload vcell4 0 DC
+
+* analysis requests
+.DC Vload 0 3.2 1m
+.PRINT V(vcell1) V(vcell2) V(vcell3) V(vcell4) I(Vload)
+.MEAS Pmax MAX I(Vload)*Vload
+.MEAS Impp FIND I(Vload) WHEN I(Vload)*Vload=Pmax
+.END

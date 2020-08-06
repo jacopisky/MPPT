@@ -1,0 +1,42 @@
+* bd_no_control.cir
+
+* importing all needed libraries
+.LIB cell.cir
+
+* panel array
+X11 vc1 0 PVcell duty=1
+X12 vc2 vc1 PVcell duty=1
+X13 vc3 vc2 PVcell duty=1
+X14 vc4 vc3 PVcell duty=1
+X15 vc5 vc4 PVcell duty=1
+X16 vc6 vc5 PVcell duty=1
+X17 vc7 vc6 PVcell duty=1
+X18 vc8 vc7 PVcell duty=1
+* panel array
+X21 vc9 vc8 PVcell duty=1
+X22 vc10 vc9 PVcell duty=1
+X23 vc11 vc10 PVcell duty=1
+X24 vc12 vc11 PVcell duty=1
+X25 vc13 vc12 PVcell duty=1
+X26 vc14 vc13 PVcell duty=1
+X27 vc15 vc14 PVcell duty=1
+X28 vc16 vc15 PVcell duty=1
+* panel array
+X31 vc17 vc16 PVcell duty=1
+X32 vc18 vc17 PVcell duty=1
+X33 vc19 vc18 PVcell duty=1
+X34 vc20 vc19 PVcell duty=1
+X35 vc21 vc20 PVcell duty=1
+X36 vc22 vc21 PVcell duty=1
+X37 vc23 vc22 PVcell duty=1
+X38 vload vc23 PVcell duty=1
+
+* the load
+Vload vload 0 DC
+
+* analysis requests
+.DC Vload 0 16 1m
+.PRINT I(Vload)
+.MEAS Pmax MAX Vload*I(Vload)
+.MEAS Impp FIND I(Vload) WHEN Vload*I(Vload)=Pmax
+.END

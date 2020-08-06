@@ -1,0 +1,13 @@
+* cell_test.cir
+
+.LIB cell.cir
+
+X1 vcell 0 PVcell duty=1
+Vload vcell 0 DC
+
+.DC Vload 0 0.7 0.1m
+.MEAS Voc FIND Vload WHEN I(Vload)=0
+.MEAS Isc FIND I(Vload) WHEN Vload=0
+.MEAS Pmax MAX I(Vload)*Vload
+.MEAS Impp FIND I(Vload) WHEN I(Vload)*Vload=Pmax
+.END

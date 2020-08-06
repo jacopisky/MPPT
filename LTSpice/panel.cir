@@ -1,0 +1,65 @@
+* panel.cir
+
+.LIB cell.cir
+
+.SUBCKT 12PVpanel vpanel vm PARAMS: d=1
+X1 1 vm PVcell duty={d}
+X2 2 1 PVcell duty={d}
+X3 3 2 PVcell duty={d}
+X4 4 3 PVcell duty={d}
+X5 5 4 PVcell duty={d}
+X6 6 5 PVcell duty={d}
+X7 7 6 PVcell duty={d}
+X8 8 7 PVcell duty={d}
+X9 9 8 PVcell duty={d}
+X10 10 9 PVcell duty={d}
+X11 11 10 PVcell duty={d}
+X12 12 11 PVcell duty={d}
+X13 13 12 PVcell duty={d}
+X14 14 13 PVcell duty={d}
+X15 15 14 PVcell duty={d}
+X16 16 15 PVcell duty={d}
+X17 17 16 PVcell duty={d}
+X18 vpanel 17 PVcell duty={d}
+.ENDS
+
+.SUBCKT 12PVpanel_prob vpanel vm
+X1 1 vm PVcell duty=1
+X2 2 1 PVcell duty=1
+X3 3 2 PVcell duty=1
+X4 4 3 PVcell duty=1
+X5 5 4 PVcell duty=1
+X6 6 5 PVcell duty=1
+X7 7 6 PVcell duty=0.7
+X8 8 7 PVcell duty=1
+X9 9 8 PVcell duty=1
+X10 10 9 PVcell duty=1
+X11 11 10 PVcell duty=1
+X12 12 11 PVcell duty=1
+X13 13 12 PVcell duty=1
+X14 14 13 PVcell duty=1
+X15 15 14 PVcell duty=1
+X16 16 15 PVcell duty=1
+X17 17 16 PVcell duty=1
+X18 vpanel 17 PVcell duty=1
+.ENDS
+
+.SUBCKT 12PVpanel_sol vpanel vm
+X1 1 vm PVcell duty=1
+X2 2 1 PVcell duty=1
+X3 3 2 PVcell duty=1
+X4 4 3 PVcell duty=1
+X5 5 4 PVcell duty=1
+X6 6 5 PVcell duty=1
+X7 7 6 PVcell duty=1
+X8 8 7 PVcell duty=1
+X9 9 8 PVcell duty=1
+X10 10 9 PVcell duty=1
+X11 11 10 PVcell duty=1
+X12 12 11 PVcell duty=1
+X13 13 12 PVcell duty=1
+X14 14 13 PVcell duty=1
+X15 15 14 PVcell duty=1
+X16 16 15 PVcell duty=1
+X17 vpanel 16 PVcell duty=1
+.ENDS

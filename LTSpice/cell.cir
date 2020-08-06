@@ -1,0 +1,11 @@
+* cell.cir
+
+.MODEL diode D Is=2e-10 Vj=0.632 Tnom=25
+
+.SUBCKT PVcell vp vm PARAMS: duty=1
+.param Isolar=9.07*{duty}
+I1 vm vl {Isolar}
+Dp vl vm diode
+Rp vl vm 100
+Rout vp vl 10m
+.ENDS

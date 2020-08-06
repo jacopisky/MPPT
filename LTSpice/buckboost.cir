@@ -1,0 +1,25 @@
+* buckboost.cir
+
+.MODEL MBR735 D(Is=159u Rs=.02 N=1.76 Cjo=740p M=.6 Eg=.69 Xti=2 Iave=7.5 Vpk=35 mfg=OnSemi type=Schottky)
+.MODEL BSZ036NE2LS VDMOS(Rg=0.9 Vto=2.33 Rd=1.54m Rs=1.04m Rb=2.46m Kp=242.5 Lambda=0.09 Cgdmin=21p Cgdmax=0.37n A=0.6 Cgs=1.11n Cjo=1.4n M=0.75 Is=12.6p VJ=2.5 N=1.12 TT=3n ksubthres=.1 mfg=Infineon Vds=25 Ron=3.6m Qg=8n)
+
+.SUBCKT converter vin pwm vout gnd
+M1 med pwm gnd gnd BSZ036NE2LS
+D1 med vout MBR735
+L1 med vin 150u
+C1 vout gnd 220u
+.ENDS
+
+.LIB panel.cir
+
+X1 vpanel 0 12PVpanel
+Rshunt vpanel vsupply 0.1u
+X2 vsupply vpwm vload 0 converter
+Vduty vpwm 0 PULSE(0 5 0 1n 1n {Ts*duty} {Ts})
+Rload vload 0 10
+
+.TRAN 0 8m 0 100u
+.STEP PARAM duty 0.2 1 0.2
+.PRINT V(vload) V(vpanel) I(Rshunt) I(Rload)
+.PARAM Ts 40u
+.END

@@ -1,0 +1,10 @@
+* cell_test.cir
+
+.LIB cell.cir
+
+X1 vcell 0 PVcell duty={cycle}
+Vload vcell 0 DC
+
+.DC Vload 0 0.7 0.01
+.STEP PARAM cycle LIST 1 0.7
+.END

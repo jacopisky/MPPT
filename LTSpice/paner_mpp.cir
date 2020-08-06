@@ -1,0 +1,15 @@
+* panel_mpp.cir
+
+.LIB panel.cir
+
+X1 vdd 0 12PVpanel d={dd}
+Vload vdd 0 DC
+
+.DC Vload 0 13 0.1m
+.STEP PARAM dd 0.1 1 0.1
+.MEAS Voc FIND Vload WHEN I(Vload)=0
+.MEAS Isc FIND I(Vload) WHEN Vload=0
+.MEAS Pmax MAX I(Vload)*Vload
+.MEAS Vmpp FIND Vload WHEN I(Vload)*Vload=Pmax
+.MEAS Impp FIND I(Vload) WHEN I(Vload)*Vload=Pmax
+.END

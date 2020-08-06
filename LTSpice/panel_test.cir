@@ -1,0 +1,15 @@
+* panel_test.cir
+
+.LIB panel.cir
+
+X1 v1 0 12PVpanel
+X2 v2 0 12PVpanel_prob
+X3 v3 0 12PVpanel_sol
+E1 v1 0 vdd 0 1
+E2 v2 0 vdd 0 1
+E3 v3 0 vdd 0 1
+Vload vdd 0 DC
+
+.DC Vload 0 13 0.1
+.PRINT I(E1) I(E2) I(E3)
+.END
